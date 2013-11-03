@@ -1,0 +1,50 @@
+2013-11-03 9:34:43 - INFO --> -------------------------- 
+2013-11-03 9:34:43 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 9:34:43 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY ianmccrum@gmail.com 
+2013-11-03 9:34:43 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 9:34:43 - INFO --> To: Judy Grimes (judy@gmail.com),  
+2013-11-03 9:34:43 - INFO --> CC:  
+2013-11-03 9:34:43 - INFO --> BCC:  
+2013-11-03 9:34:43 - INFO --> Subject: Welcome to Quack Quack! 
+2013-11-03 9:34:43 - INFO --> Body: Hi Judy, this is just a message to confirm your registration at JavaBeans.com 
+2013-11-03 9:34:43 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 9:38:39 - INFO --> -------------------------- 
+2013-11-03 9:38:39 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 9:38:39 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY ianmccrum@gmail.com 
+2013-11-03 9:38:39 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 9:38:39 - INFO --> To: Judy Grimes (ianmccrum@gmail.com),  
+2013-11-03 9:38:39 - INFO --> CC:  
+2013-11-03 9:38:39 - INFO --> BCC:  
+2013-11-03 9:38:39 - INFO --> Subject: Welcome to Quack Quack! 
+2013-11-03 9:38:39 - INFO --> Body: Hi Judy, this is just a message to confirm your registration at JavaBeans.com 
+2013-11-03 9:38:39 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 9:43:21 - INFO --> -------------------------- 
+2013-11-03 9:43:21 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 9:43:21 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY ianmccrum@gmail.com 
+2013-11-03 9:43:21 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 9:43:21 - INFO --> To: Judy Grimes (ianmccrum@gmail.com),  
+2013-11-03 9:43:21 - INFO --> CC:  
+2013-11-03 9:43:21 - INFO --> BCC:  
+2013-11-03 9:43:21 - INFO --> Subject: Welcome to Quack Quack! 
+2013-11-03 9:43:21 - INFO --> Body: Hi Judy, this is just a message to confirm your registration at JavaBeans.com 
+2013-11-03 9:43:21 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 9:52:14 - INFO --> -------------------------- 
+2013-11-03 9:52:14 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 9:52:14 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY ianmccrum@gmail.com 
+2013-11-03 9:52:14 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 9:52:14 - INFO --> To: Judy Grimes (ianmccrum@gmail.com),  
+2013-11-03 9:52:14 - INFO --> CC:  
+2013-11-03 9:52:14 - INFO --> BCC:  
+2013-11-03 9:52:14 - INFO --> Subject: Welcome to Quack Quack! 
+2013-11-03 9:52:14 - INFO --> Body: Hi Judy, this is just a message to confirm your registration at JavaBeans.com 
+2013-11-03 9:52:14 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 9:57:43 - INFO --> -------------------------- 
+2013-11-03 9:57:43 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 9:57:43 - INFO --> OUTGOING EMAILS ARE DISABLED. THIS EMAIL WAS NOT SENT TO THE RECIPIENTS, ONLY ianmccrum@gmail.com 
+2013-11-03 9:57:43 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 9:57:43 - INFO --> To: Judy Grimes (ianmccrum@gmail.com),  
+2013-11-03 9:57:43 - INFO --> CC:  
+2013-11-03 9:57:43 - INFO --> BCC:  
+2013-11-03 9:57:43 - INFO --> Subject: Welcome to Quack Quack! 
+2013-11-03 9:57:43 - INFO --> Body: Hi Judy, this is just a message to confirm your registration at JavaBeans.com 
+2013-11-03 9:57:43 - INFO --> FAILED TO SEND EMAIL 

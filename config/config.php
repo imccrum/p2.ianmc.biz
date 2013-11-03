@@ -14,7 +14,7 @@ If you want a different default time format for this app, set it below
 */
 
 # What is the name of this app?
-	define('APP_NAME', 'Sample App');  
+	define('APP_NAME', 'Quack Quack');  
 
 # When email is sent out from the server, where should it come from?
 # Ideally, this should match the domain name
@@ -28,10 +28,10 @@ A email designated to receive messages from the server. Examples:
  	
  	Some might want this to be the same as the APP_EMAIL, others might want to create a designated gmail address for it
 */ 	
-	define('SYSTEM_EMAIL', 'webmaster@myapp.com'); 
+	define('SYSTEM_EMAIL', 'ianmccrum@gmail.com'); 
 
 # Default DB name for this app
-	define('DB_NAME', 'myapp_com'); 
+	define('DB_NAME', 'p2_ianmc_biz'); 
 
 # Timezone
 	define('TIMEZONE', 'America/New_York');
@@ -43,5 +43,5 @@ A email designated to receive messages from the server. Examples:
 	//define('SMTP_PASSWORD', '');
 
 # For extra security, you might want to set different salts than what the core uses
-	//define('PASSWORD_SALT', '');
-	//define('TOKEN_SALT', '');
+	define('PASSWORD_SALT', '%}5yMtfU6J+;g(MsWzcRDX>1h+=`/6F0L7Z_$Q0UT*OuKp3@5B/(AW/oQ,zv|po`');
+	define('TOKEN_SALT', '?S-6@3?D@]ZZ3Hed  -G{a^HT_}FOPttHB>{?W6P7Dw<Gfw#Gp#Cx-T@ Jj*/9_&');
