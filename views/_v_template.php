@@ -2,6 +2,7 @@
 <html>
 	<head>
 	<title><?php if(isset($title)) echo $title; ?></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="initial-scale=0.7">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
 	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
@@ -15,7 +16,7 @@
 	<?php if($user): ?>
 
 	<nav>
-		<a href="/"><img class="logo" src="/assets/duck.png"></a>
+		<a href="/"><img class="logo" src="/assets/duck.png" alt="a duck"></a>
 		<a href="/posts/add">POST</a> | 
 		<a href="/posts/users">FOLLOW</a> | 
 		<a href="/posts/myposts/edit">EDIT</a> | 
@@ -26,7 +27,7 @@
 	<?php else: ?>
 
 	<nav>
-		<a href="/"><img class="logo" src="/assets/duck.png"></a>
+		<a href="/"><img class="logo" src="/assets/duck.png" alt="a duck"></a>
 		<a href="/users/login">LOGIN</a> | 
 		<a href="/users/signup">SIGNUP</a>
 	</nav>
