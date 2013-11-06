@@ -30,10 +30,8 @@
 
 <?php if(!isset($posts[0])): ?>
 
-	this is where your posts will appear - follow someone or add a post..
-	
-	<br>
-
+	<p>this is where your posts will appear - follow someone or add a post..</p>
+		
 <?php endif; ?>
 
 <?php foreach($posts as $post): ?>
