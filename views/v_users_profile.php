@@ -28,7 +28,8 @@
 
 <?php if(!isset($posts[0])): ?>
 
-	<p>this is where your posts will appear - follow someone or add a post..</p>
+	this is where your posts will appear - follow someone or add a post..
+	<br>
 
 <?php endif; ?>
 
