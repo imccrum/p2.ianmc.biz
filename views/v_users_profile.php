@@ -5,8 +5,10 @@
 	<div class="success">
 
 		<?php if($message == "post_successful"): ?>
-
+			
+			<div class="success">
             you just made a post
+            </div>
 
         <?php endif; ?>
 
@@ -29,6 +31,7 @@
 <?php if(!isset($posts[0])): ?>
 
 	this is where your posts will appear - follow someone or add a post..
+	
 	<br>
 
 <?php endif; ?>
