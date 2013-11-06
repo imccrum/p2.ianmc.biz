@@ -48,3 +48,77 @@
 2013-11-03 9:57:43 - INFO --> Subject: Welcome to Quack Quack! 
 2013-11-03 9:57:43 - INFO --> Body: Hi Judy, this is just a message to confirm your registration at JavaBeans.com 
 2013-11-03 9:57:43 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 12:36:21 - INFO --> -------------------------- 
+2013-11-03 12:36:21 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 12:36:21 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 12:36:21 - INFO --> To: Judy Grimes (ianmccrum@gmail.com),  
+2013-11-03 12:36:21 - INFO --> CC:  
+2013-11-03 12:36:21 - INFO --> BCC:  
+2013-11-03 12:36:21 - INFO --> Subject: Welcome to Quack Quack! 
+2013-11-03 12:36:21 - INFO --> Body: Hi Judy, this is just a message to confirm your registration at JavaBeans.com 
+2013-11-03 12:36:21 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 12:44:54 - INFO --> -------------------------- 
+2013-11-03 12:44:54 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 12:44:54 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 12:44:54 - INFO --> To: Judy Grimes (ianmccrum@gmail.com),  
+2013-11-03 12:44:54 - INFO --> CC:  
+2013-11-03 12:44:54 - INFO --> BCC:  
+2013-11-03 12:44:54 - INFO --> Subject: Welcome to Quack Quack! 
+2013-11-03 12:44:54 - INFO --> Body: Hi Judy, this is just a message to confirm your registration at JavaBeans.com 
+2013-11-03 12:44:54 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 12:51:39 - INFO --> -------------------------- 
+2013-11-03 12:51:39 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 12:51:39 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 12:51:39 - INFO --> To: Judy Grimes (ianmccrum@gmail.com),  
+2013-11-03 12:51:39 - INFO --> CC:  
+2013-11-03 12:51:39 - INFO --> BCC:  
+2013-11-03 12:51:39 - INFO --> Subject: Welcome to Quack Quack! 
+2013-11-03 12:51:39 - INFO --> Body: Hi Judy, this is just a message to confirm your registration at JavaBeans.com 
+2013-11-03 12:51:39 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 12:59:05 - INFO --> -------------------------- 
+2013-11-03 12:59:05 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 12:59:05 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 12:59:05 - INFO --> To: Judy Grimes (ianmccrum@gmail.com),  
+2013-11-03 12:59:05 - INFO --> CC:  
+2013-11-03 12:59:05 - INFO --> BCC:  
+2013-11-03 12:59:05 - INFO --> Subject: Welcome to Quack Quack! 
+2013-11-03 12:59:05 - INFO --> Body: Hi Judy, this is just a message to confirm your registration at JavaBeans.com 
+2013-11-03 12:59:05 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 22:34:34 - INFO --> -------------------------- 
+2013-11-03 22:34:34 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 22:34:34 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 22:34:34 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-03 22:34:34 - INFO --> CC:  
+2013-11-03 22:34:34 - INFO --> BCC:  
+2013-11-03 22:34:34 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-03 22:34:34 - INFO --> Body: <h2>SQL Error</h2> INSERT INTO users_users SET created = '1383536074', user_id = '', user_id_followed = '' Cannot add or update a child row: a foreign key constraint fails (`p2_ianmc_biz`.`users_users`, CONSTRAINT `users_users_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE  
+2013-11-03 22:34:34 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 22:37:16 - INFO --> -------------------------- 
+2013-11-03 22:37:16 - INFO --> Controller/Method: users/success 
+2013-11-03 22:37:16 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 22:37:16 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-03 22:37:16 - INFO --> CC:  
+2013-11-03 22:37:16 - INFO --> BCC:  
+2013-11-03 22:37:16 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-03 22:37:16 - INFO --> Body: <h2>SQL Error</h2> INSERT INTO users_users SET created = '1383536236', user_id = '', user_id_followed = '' Cannot add or update a child row: a foreign key constraint fails (`p2_ianmc_biz`.`users_users`, CONSTRAINT `users_users_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE  
+2013-11-03 22:37:16 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 22:48:50 - INFO --> -------------------------- 
+2013-11-03 22:48:50 - INFO --> Controller/Method: users/success 
+2013-11-03 22:48:50 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 22:48:50 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-03 22:48:50 - INFO --> CC:  
+2013-11-03 22:48:50 - INFO --> BCC:  
+2013-11-03 22:48:50 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-03 22:48:50 - INFO --> Body: <h2>SQL Error</h2> INSERT INTO users_users SE You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SE' at line 1<h2>Query History</h2>0 = INSERT INTO users_users SE<br><h2>SERVER</h2><pre>Array
+(
+    [REDIRECT_STATUS]  
+2013-11-03 22:48:50 - INFO --> FAILED TO SEND EMAIL 
+2013-11-03 22:53:33 - INFO --> -------------------------- 
+2013-11-03 22:53:33 - INFO --> Controller/Method: users/p_signup 
+2013-11-03 22:53:33 - INFO --> From: Quack Quack (webmaster@sample-app.com) 
+2013-11-03 22:53:33 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-03 22:53:33 - INFO --> CC:  
+2013-11-03 22:53:33 - INFO --> BCC:  
+2013-11-03 22:53:33 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-03 22:53:33 - INFO --> Body: <h2>SQL Error</h2> INSERT INTO users_users SET created = '1383537212', user_id = '', user_id_followed = '' Cannot add or update a child row: a foreign key constraint fails (`p2_ianmc_biz`.`users_users`, CONSTRAINT `users_users_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE  
+2013-11-03 22:53:33 - INFO --> FAILED TO SEND EMAIL 

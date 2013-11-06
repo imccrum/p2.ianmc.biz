@@ -1,19 +1,31 @@
 <div class="container">
 
-<h1>Post</h1>
+	<h1>Post</h1>
 
-<?php if(isset($error)): ?>
-        <div class="error">
-            ooops.. posts can't be blank
-        </div>
-<?php endif; ?>
+	<?php if(isset($error)): ?>
+			
+			<div class="error">
+			
+			<?php if($error == "error"): ?>
+	            
+	            ooops.. posts can't be blank
+	        
+	        <?php elseif($error == "html"): ?>  
+	            
+	            sorry html is disabled please try again
+	         
+	        <?php endif; ?>
+	        
+	        </div>
 
-<form method="post" action="/posts/p_add">
+	<?php endif; ?>
 
-<textarea class="textbox" name="content"></textarea>
+	<form method="post" action="/posts/p_add">
 
-<input class="submit" type="submit" value="POST">
+		<textarea class="textbox" name="content"></textarea>
 
-</form>
+		<input class="submit" type="submit" value="POST">
+
+	</form>
 
 </div>

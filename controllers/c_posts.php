@@ -1,285 +1,407 @@
 <?php
 class posts_controller extends base_controller {
 
-	public function __construct() {
-        parent::__construct();
-        
-    } 
+  public function __construct() {
 
-	public function add($error = NULL) {
+    parent::__construct();
 
-	if (!$this->user) {
+  } 
 
-            Router::redirect("/");
-            
+  public function add($error = NULL) {
+
+    # must be logged in
+
+    if (!$this->user) {
+
+      Router::redirect("/");
+
     }
-    	$this->template->content = View::instance("v_posts_add");
+
+    $this->template->content = View::instance("v_posts_add");
+
+    $this->template->title = "QUACK QUACK | POST";
 
     if (isset($error)) {
 
-    	$this->template->content->error = $error;
+     $this->template->content->error = $error;
 
     }
 
-        $client_files_head = Array("/css/main.css");
-
-        $this->template->client_files_head = Utils::load_client_files($client_files_head);
-		
-		$this->template->title = "New Post";
-
-		echo $this->template;
-	}
-
-	public function p_add() {
-
-	if (empty($_POST["content"])) {
-
-            Router::redirect("/posts/add/error");
-    
-    }
-
-		$_POST["user_id"] = $this->user->user_id;
-		$_POST["created"] = Time::now();
-		$_POST["modified"] = Time::now();
-
-		DB::instance(DB_NAME)->insert("posts", $_POST);
-
-		Router::redirect("/users/profile");
-
-	}
-
-	public function index() {
-
-	if (!$this->user) {
-
-            Router::redirect("/");
-            
-    }
-
-  		$this->template->content = View::instance("v_posts_index");
+    echo $this->template;
+  
+  }
 
 
-		$q = "SELECT
-			posts.content, 
-			posts.created, 
-			posts.user_id AS post_user_id, 
-			users_users.user_id AS follower_id, 
-			users.first_name, 
-			users.last_name
-			FROM posts
-			INNER JOIN users_users ON posts.user_id = users_users.user_id_followed
-			INNER JOIN users ON posts.user_id = users.user_id
-			WHERE users_users.user_id = '" .$this->user->user_id. "'
-			ORDER BY posts.created DESC 
-			LIMIT 0 , 10";
-		
-		$posts = DB::instance(DB_NAME)->select_rows($q);
+  public function p_add() {
 
-		
+    # must be logged in
 
-		foreach ($posts as &$post) {
+    if (!$this->user) {
 
-			
-			$post["created"] = date("j M Y, g:i a", $post["created"]);
+    Router::redirect("/");
 
-		}
+    }  
 
+    # trim content to establish if really empty
 
-	//	$posts['first_name'] = "23";//time($post["created"], strtotime($date));
+    $check = ltrim($_POST["content"]);
 
-	
+    # 2nd condition allows single 0s
 
-		$client_files_head = Array("/css/main.css");
+    if (empty($check) && $check !== "0") {
 
-    	$this->template->client_files_head = Utils::load_client_files($client_files_head);
+      # return error message in url
 
-		$this->template->content->posts = $posts;
-
-		echo $this->template;
-
-
-	}
-
-
-public function users() {
-
-	if (!$this->user) {
-
-            Router::redirect("/");
+      Router::redirect("/posts/add/error");
 
     }
 
-    	$client_files_head = Array("/css/main.css");
+    # check for html tags
 
-    	$this->template->client_files_head = Utils::load_client_files($client_files_head);
+    if($_POST["content"] != strip_tags($_POST["content"])) {
 
-    
+      # return error message in url
+
+      Router::redirect("/posts/add/html");
+      
+    }
+
+    $_POST["user_id"] = $this->user->user_id;
+    $_POST["created"] = Time::now();
+    $_POST["modified"] = Time::now();
+
+    DB::instance(DB_NAME)->insert("posts", $_POST);
+
+    # return to profile with success message
+
+    Router::redirect("/users/profile/post_successful");
+
+  }
+
+
+  public function index($message = NULL) {
+
+  # stop if not logged in
+
+    if (!$this->user) {
+
+      Router::redirect("/");
+
+    }
+
+  # if logged in send to profile
+
+    else {
+
+      Router::redirect("/users/profile");
+
+    }
+
+  }
+
+  public function users() {
+
+  # must be logged in
+
+    if (!$this->user) {
+
+      Router::redirect("/");
+
+    }
+
     $this->template->content = View::instance("v_posts_users");
-    $this->template->title   = "Users";
+
+    $this->template->title = "QUACK QUACK | FOLLOW";
+
+  # query return all users in alphabetical order 
 
     $q = "SELECT
-    		users.user_id,
-    		users.first_name,
-    		users.last_name
-        FROM users
-        ORDER BY first_name";
+    users.user_id,
+    users.first_name,
+    users.last_name
+    FROM users
+    WHERE user_id <>'" .$this->user->user_id. "' 
+    ORDER BY first_name";
+
+  # data already sanitized
 
     $users = DB::instance(DB_NAME)->select_rows($q);
 
-    $q = "SELECT * 
-        FROM users_users
-        WHERE user_id = ".$this->user->user_id;
+  # query for relationshiips
 
-    # Execute this query with the select_array method
-    # select_array will return our results in an array and use the "users_id_followed" field as the index.
-    # This will come in handy when we get to the view
-    # Store our results (an array) in the variable $connections
+    $q = "SELECT * 
+    FROM users_users
+    WHERE user_id = ".$this->user->user_id;
+
+  # data already sanitized
+
     $connections = DB::instance(DB_NAME)->select_array($q, 'user_id_followed');
 
     $this->template->content->users       = $users;
     $this->template->content->connections = $connections;
 
     echo $this->template;
-}
 
-public function follow($user_id_followed) {
+  }
 
-	if (!$this->user) {
+  public function follow($user_id_followed) {
 
-            Router::redirect("/");
-           
+  # must be logged in
+
+    if (!$this->user) {
+
+      Router::redirect("/");
 
     }
 
-    # Prepare the data array to be inserted
-    $data = Array(
-        "created" => Time::now(),
-        "user_id" => $this->user->user_id,
-        "user_id_followed" => $user_id_followed
-        );
+# prepare array
 
-    # Do the insert
+    $data = Array(
+      "created" => Time::now(),
+      "user_id" => $this->user->user_id,
+      "user_id_followed" => $user_id_followed
+      );
+
+# insert
+
     DB::instance(DB_NAME)->insert('users_users', $data);
 
-    # Send them back
+# back to user list
+
     Router::redirect("/posts/users");
 
-}
+  }
 
-public function unfollow($user_id_followed) {
+  public function unfollow($user_id_followed) {
 
-	if (!$this->user) {
+  # must be logged in
 
-            Router::redirect("/");
-       
+    if (!$this->user) {
+
+      Router::redirect("/");
 
     }
 
-    # Delete this connection
+# Delete this connection
+
     $where_condition = 'WHERE user_id = '.$this->user->user_id.' AND user_id_followed = '.$user_id_followed;
+
+  # not user input
+
     DB::instance(DB_NAME)->delete('users_users', $where_condition);
 
-    # Send them back
+  # Send them back
+
     Router::redirect("/posts/users");
 
-}
+  }
 
-public function edit() {
+  public function myposts($option = NULL) {
 
-	if (!$this->user) {
+  # must be logged in 
 
-            Router::redirect("/");
-       
-    }
+    if (!$this->user)  {
 
-    $this->template->content = View::instance("v_posts_edit");
-
-    $client_files_head = Array("/css/main.css");
-
-    $this->template->client_files_head = Utils::load_client_files($client_files_head);
-
-    		$q = "SELECT
-			posts.content, 
-			posts.created,
-			posts.post_id, 
-			posts.user_id,
-			users.first_name, 
-			users.last_name
-			FROM posts
-			INNER JOIN users ON posts.user_id = users.user_id
-			WHERE posts.user_id = '" .$this->user->user_id. "'
-			ORDER BY posts.created DESC";
-					
-		$posts = DB::instance(DB_NAME)->select_rows($q);
-
-		foreach ($posts as &$post) {
-			
-			$post["created"] = date("j M Y, g:i a", $post["created"]);
-
-		}
-
-		$this->template->content->posts = $posts;
-
-		echo $this->template;
-
-	}
-
-	public function editpost($message = NULL) {
-
-		if (!$this->user) {
-
-        Router::redirect("/");
-       
-    }
-
-    $this->template->content = View::instance("v_posts_editpost");
-
-    $client_files_head = Array("/css/main.css");
-
-    $this->template->client_files_head = Utils::load_client_files($client_files_head);
-
-    $messages = explode("&", $message);
-
-    if(isset($messages[1])) {
-
-    $this->template->content->error = $messages[1];
+      Router::redirect("/");
 
     }
+
+  # only allow access through delete or edit functions
+
+    if ($option != "delete" && $option != "edit") {
+
+      Router::redirect("/users/profile");
+
+    }
+
+    $this->template->content = View::instance("v_posts_myposts");
+
+    $this->template->content->option = $option;
+
+    $this->template->title = "QUACK QUACK | MY POSTS";
+
+  # query returns all posts my the user (and time, name, etc) chronological order
 
     $q = "SELECT
-			posts.content,
-			posts.post_id
-			FROM posts
-			WHERE posts.post_id = '" .$messages[0]. "'";
-					
-		$posts = DB::instance(DB_NAME)->select_rows($q);
+    posts.content, 
+    posts.created,
+    posts.post_id, 
+    posts.user_id,
+    users.first_name, 
+    users.last_name
+    FROM posts
+    INNER JOIN users ON posts.user_id = users.user_id
+    WHERE posts.user_id = '" .$this->user->user_id. "'
+    ORDER BY posts.created DESC";
 
-		$this->template->content->posts = $posts;
+  # already sanitized
+
+    $posts = DB::instance(DB_NAME)->select_rows($q);
+
+    foreach ($posts as &$post) {
+
+    # convert timestamp
+
+      $post["created"] = date("j M Y, g:i a", $post["created"]);
+
+    }
+
+    $this->template->content->posts = $posts;
 
     echo $this->template;
 
+  }
 
-	}
 
-	public function p_editpost() {
+  public function edit($param = NULL) {
 
-	if (empty($_POST["content"])) {
+   if (!$this->user) {
 
-            Router::redirect("/posts/editpost/".$_POST[post_id]."&error");
-    
+    Router::redirect("/");
+
+  }
+
+  $this->template->content = View::instance("v_posts_edit");
+
+  $this->template->title = "QUACK QUACK | EDIT";
+
+  # to separate params in the url => post_id | error message
+
+  $params = explode("&", $param);
+
+  if(isset($params[1])) {
+
+    $this->template->content->error = $params[1];
+
+  }
+
+  $q = "SELECT
+  posts.content,
+  posts.post_id,
+  posts.user_id
+  FROM posts
+  WHERE posts.post_id = '" .$params[0]. "' AND posts.user_id = '" .$this->user->user_id. "'";
+
+  $_POST = DB::instance(DB_NAME)->sanitize($q);
+
+  $posts = DB::instance(DB_NAME)->select_rows($q);
+
+  # to stop rogue editing when there are no posts
+
+  if (!isset($posts[0])) {
+
+    Router::redirect("/posts/myposts/edit");
+
+  }
+
+  $this->template->content->posts = $posts;
+
+  echo $this->template;
+
+  }
+
+  public function p_edit() {
+
+    # trim input to make sure really empty
+
+    $check = ltrim($_POST["content"]);
+
+    if (empty($check) && $check !== "0") {
+
+      # if empty return to edit with post_id and error condition in url
+
+      Router::redirect("/posts/edit/".$_POST[post_id]."&error");
+
     }
 
-		$_POST["modified"] = Time::now();
+    # check for html and return error message
 
-		$q = "UPDATE 
-		     	posts 
-		     SET content='" .$_POST["content"]. "'
-             WHERE post_id= '" .$_POST["post_id"]. "'";
+    if($_POST["content"] != strip_tags($_POST["content"])) {
+
+      Router::redirect("/posts/edit/".$_POST[post_id]."&html");
+      
+    }
+
+    # update modified time
+
+    $_POST["modified"] = Time::now();
+
+    # update entry provided it matches the post_id AND the user_id 
+
+    $q = "UPDATE 
+    posts 
+    SET content = '" .$_POST["content"]. "'
+    WHERE post_id = '" .$_POST["post_id"]. "' AND user_id = '" .$this->user->user_id. "'";
 
     DB::instance(DB_NAME)->query($q);
 
-    Router::redirect("/users/profile");
+    Router::redirect("/users/profile/edit_successful");
 
-	}
+  }
+
+  public function delete($param = NULL) {
+
+    # must be logged in 
+
+    if (!$this->user) {
+
+      Router::redirect("/");
+
+    }
+
+    $this->template->content = View::instance("v_posts_delete");
+
+    $this->template->title = "QUACK QUACK | DELETE";
+
+    # run query to confirm message for delete. Ensure matches post_id and user_id
+
+    $q = "SELECT
+    posts.content, 
+    posts.created,
+    posts.post_id,
+    posts.user_id,
+    users.first_name, 
+    users.last_name
+    FROM posts
+    INNER JOIN users ON posts.user_id = users.user_id
+    WHERE posts.post_id = '" .$param. "' AND posts.user_id = '" .$this->user->user_id. "'";
+
+    $_POST = DB::instance(DB_NAME)->sanitize($q);
+
+    $posts = DB::instance(DB_NAME)->select_rows($q);
+
+    # to stop rogue editing when there are no posts
+
+    if (!isset($posts["0"])) {
+
+      Router::redirect("/posts/myposts/delete");
+
+    }
+
+    # convert timestamp
+
+    $posts["0"]["created"] = date("j M Y, g:i a", $posts["0"]["created"]);
+
+    $this->template->content->posts = $posts;
+
+    echo $this->template;
+
+  }
+
+  public function p_delete() {
+
+    # delete provided post_id and user_id
+
+    $q = "DELETE 
+    FROM posts
+    WHERE posts.post_id = '" .$_POST["post_id"]. "' AND posts.user_id = '" .$this->user->user_id. "'";
+
+    $_POST = DB::instance(DB_NAME)->sanitize($q);
+
+    DB::instance(DB_NAME)->query($q);
+
+    Router::redirect("/users/profile/delete_successful");
+
+  }
 
 }

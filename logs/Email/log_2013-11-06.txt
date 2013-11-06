@@ -1,0 +1,124 @@
+2013-11-06 7:45:32 - INFO --> -------------------------- 
+2013-11-06 7:45:32 - INFO --> Controller/Method: posts/delete 
+2013-11-06 7:45:32 - INFO --> From: Quack Quack (quackquackwebmaster@gmail.com) 
+2013-11-06 7:45:32 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-06 7:45:32 - INFO --> CC:  
+2013-11-06 7:45:32 - INFO --> BCC:  
+2013-11-06 7:45:32 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-06 7:45:32 - INFO --> Body: <h2>SQL Error</h2> SELECT
+    content, 
+    created,
+    post_id,
+    users.first_name, 
+    users.last_name
+    FROM posts
+    INNER JOIN users ON posts.user_id = users.user_id
+    WHERE post_id = '13' Column 'created' in field list is ambiguous<h2>Query History</h2>0 = SELECT *
+					FROM users
+			 
+2013-11-06 7:45:32 - INFO --> FAILED TO SEND EMAIL 
+2013-11-06 7:45:36 - INFO --> -------------------------- 
+2013-11-06 7:45:36 - INFO --> Controller/Method: posts/delete 
+2013-11-06 7:45:36 - INFO --> From: Quack Quack (quackquackwebmaster@gmail.com) 
+2013-11-06 7:45:36 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-06 7:45:36 - INFO --> CC:  
+2013-11-06 7:45:36 - INFO --> BCC:  
+2013-11-06 7:45:36 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-06 7:45:36 - INFO --> Body: <h2>SQL Error</h2> SELECT
+    content, 
+    created,
+    post_id,
+    users.first_name, 
+    users.last_name
+    FROM posts
+    INNER JOIN users ON posts.user_id = users.user_id
+    WHERE post_id = '13' Column 'created' in field list is ambiguous<h2>Query History</h2>0 = SELECT *
+					FROM users
+			 
+2013-11-06 7:45:36 - INFO --> FAILED TO SEND EMAIL 
+2013-11-06 9:09:38 - INFO --> -------------------------- 
+2013-11-06 9:09:38 - INFO --> Controller/Method: posts/p_edit 
+2013-11-06 9:09:38 - INFO --> From: Quack Quack (quackquackwebmaster@gmail.com) 
+2013-11-06 9:09:38 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-06 9:09:38 - INFO --> CC:  
+2013-11-06 9:09:38 - INFO --> BCC:  
+2013-11-06 9:09:38 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-06 9:09:38 - INFO --> Body: <h2>SQL Error</h2> UPDATE 
+    posts 
+    SET content = 'gasfgvfsdgv new
+'
+    INNER JOIN users ON posts.user_id = users.user_id
+    WHERE posts.post_id = '' AND posts.user_id = '60' You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right s 
+2013-11-06 9:09:38 - INFO --> FAILED TO SEND EMAIL 
+2013-11-06 9:12:22 - INFO --> -------------------------- 
+2013-11-06 9:12:22 - INFO --> Controller/Method: posts/p_edit 
+2013-11-06 9:12:22 - INFO --> From: Quack Quack (quackquackwebmaster@gmail.com) 
+2013-11-06 9:12:22 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-06 9:12:22 - INFO --> CC:  
+2013-11-06 9:12:22 - INFO --> BCC:  
+2013-11-06 9:12:22 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-06 9:12:22 - INFO --> Body: <h2>SQL Error</h2> SELECT
+    posts.user_id,
+    posts.post_id AS post_user_id,
+    UPDATE 
+    posts 
+    SET content = 'gasfgvfsdgv ng'
+    WHERE posts.post_id = '' AND posts.user_id = '60' You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the 
+2013-11-06 9:12:22 - INFO --> FAILED TO SEND EMAIL 
+2013-11-06 9:12:32 - INFO --> -------------------------- 
+2013-11-06 9:12:32 - INFO --> Controller/Method: posts/p_edit 
+2013-11-06 9:12:32 - INFO --> From: Quack Quack (quackquackwebmaster@gmail.com) 
+2013-11-06 9:12:32 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-06 9:12:32 - INFO --> CC:  
+2013-11-06 9:12:32 - INFO --> BCC:  
+2013-11-06 9:12:32 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-06 9:12:32 - INFO --> Body: <h2>SQL Error</h2> SELECT
+    posts.user_id,
+    posts.post_id AS post_user_id,
+    UPDATE 
+    posts 
+    SET content = 'gasfgvfsdgv ng gdfg'
+    WHERE posts.post_id = '' AND posts.user_id = '60' You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version fo 
+2013-11-06 9:12:32 - INFO --> FAILED TO SEND EMAIL 
+2013-11-06 9:14:51 - INFO --> -------------------------- 
+2013-11-06 9:14:51 - INFO --> Controller/Method: posts/p_edit 
+2013-11-06 9:14:51 - INFO --> From: Quack Quack (quackquackwebmaster@gmail.com) 
+2013-11-06 9:14:51 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-06 9:14:51 - INFO --> CC:  
+2013-11-06 9:14:51 - INFO --> BCC:  
+2013-11-06 9:14:51 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-06 9:14:51 - INFO --> Body: <h2>SQL Error</h2> UPDATE 
+        posts 
+    SET content = 'gasfgvfsdgv ng gdfg'
+    IF posts.post_id = '' AND posts.user_id = '60' You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF posts.post_id = '' AND posts. 
+2013-11-06 9:14:51 - INFO --> FAILED TO SEND EMAIL 
+2013-11-06 9:14:57 - INFO --> -------------------------- 
+2013-11-06 9:14:57 - INFO --> Controller/Method: posts/p_edit 
+2013-11-06 9:14:57 - INFO --> From: Quack Quack (quackquackwebmaster@gmail.com) 
+2013-11-06 9:14:57 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-06 9:14:57 - INFO --> CC:  
+2013-11-06 9:14:57 - INFO --> BCC:  
+2013-11-06 9:14:57 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-06 9:14:57 - INFO --> Body: <h2>SQL Error</h2> UPDATE 
+        posts 
+    SET content = 'gasfgvfsdgv ng gdfg'
+    IF posts.post_id = '' AND posts.user_id = '60' You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF posts.post_id = '' AND posts. 
+2013-11-06 9:14:57 - INFO --> FAILED TO SEND EMAIL 
+2013-11-06 15:11:24 - INFO --> -------------------------- 
+2013-11-06 15:11:24 - INFO --> Controller/Method: users/p_signup 
+2013-11-06 15:11:24 - INFO --> From: Quack Quack (quackquackwebmaster@gmail.com) 
+2013-11-06 15:11:24 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-06 15:11:24 - INFO --> CC:  
+2013-11-06 15:11:24 - INFO --> BCC:  
+2013-11-06 15:11:24 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-06 15:11:24 - INFO --> Body: <h2>SQL Error</h2> SELECT email FROM users WHERE email = 'fe'@mfeoi.com' You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@mfeoi.com'' at line 1<h2>Query History</h2>0 = SELECT email FROM users WHERE email = 'fe'@m 
+2013-11-06 15:11:24 - INFO --> FAILED TO SEND EMAIL 
+2013-11-06 15:12:15 - INFO --> -------------------------- 
+2013-11-06 15:12:15 - INFO --> Controller/Method: users/p_signup 
+2013-11-06 15:12:15 - INFO --> From: Quack Quack (quackquackwebmaster@gmail.com) 
+2013-11-06 15:12:15 - INFO --> To: Quack Quack (ianmccrum@gmail.com),  
+2013-11-06 15:12:15 - INFO --> CC:  
+2013-11-06 15:12:15 - INFO --> BCC:  
+2013-11-06 15:12:15 - INFO --> Subject: Quack Quack SQL Error 
+2013-11-06 15:12:15 - INFO --> Body: <h2>SQL Error</h2> SELECT email FROM users WHERE email = 'wfesf'oiwe@mfoe.ocm' You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'oiwe@mfoe.ocm'' at line 1<h2>Query History</h2>0 = SELECT email FROM users WHERE email 
+2013-11-06 15:12:15 - INFO --> FAILED TO SEND EMAIL 
